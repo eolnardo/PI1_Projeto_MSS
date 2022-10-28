@@ -79,10 +79,10 @@ public class machine {
 		
 	
 	
-	void mascote () {
+	/*void mascote () {
 		System.out.println("\n[Kuriboh]:\nAh, quase que eu ia me esquecendo... \nantes de você começar a tomar suas próprias decisôes\ntenho que te apresentar um amigo que vai te acompanhar nessa joranda!");
 		mascote = scan.next();
-	}
+	} */
 	
 	void menucombate (viloes vilao, jogador jogador) {
 		if (jogador.viloesDerrotados == 1) {
