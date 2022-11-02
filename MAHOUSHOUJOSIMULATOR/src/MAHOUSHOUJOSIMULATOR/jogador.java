@@ -6,7 +6,7 @@ public class jogador {
 	Scanner scan = new Scanner(System.in);
 	String nome, desejo;
 	int uniforme = 0, menujogador;
-	double ataque = 10, defesa = 10, vidabase = 20, vida;
+	double ataque = 10, defesa = 10, vidabase = 20, vida, protecao = (1 + (defesa/100)), mitigacao = ataque/protecao;
 	int viloesDerrotados = 0;
 	
 	
@@ -25,7 +25,7 @@ public class jogador {
 		desejo = scan.nextLine(); 
 		System.out.println("\n====================================================S2=========================================================\n");
 		System.out.println("[Kuriboh]:\nParabéns! Você acaba de se tornar uma garota mágica!\nAgora você precisa decidir qual será seu uniforme de batalha!");
-		System.out.print("[Kuriboh]:\n1. Vesitdo Colegial <3\n2. Cropped e saia :3\n3. Usar minhas roupas atuais >:c\nDigite aqui o comando: ");
+		System.out.print("[Kuriboh]:\n1. Vestido Colegial <3\n2. Cropped e saia :3\n3. Usar minhas roupas atuais >:c\nDigite aqui o comando: ");
 		
 		
 		
