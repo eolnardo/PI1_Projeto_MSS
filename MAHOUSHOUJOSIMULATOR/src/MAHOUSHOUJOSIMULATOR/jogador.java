@@ -8,7 +8,7 @@ public class jogador {
 	int uniforme = 0, menujogador;
 	double ataque = 10, defesa = 10, vidabase = 20, vida, protecao = (1 + (defesa/100)), mitigacao = ataque/protecao;
 	int viloesDerrotados = 0;
-	
+	int jogadorvidaarredonda = (int) vida;
 	
 	
 	
