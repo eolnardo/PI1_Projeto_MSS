@@ -9,8 +9,8 @@ public class machine {
 	int menu, menucombate, luta;
 	boolean sair = false, menuc = false, jogadormorto = false, bossHaku = false;
 	mahoushoujosimulator zero = new mahoushoujosimulator();
-	
-	
+	grimorio magias = new grimorio();
+	int vilaovidaarredonda;
 	
 	void menu (viloes vilao, jogador jogador) {
 		while(sair==false) {
@@ -41,7 +41,7 @@ public class machine {
 		System.out.println("\n[Kuriboh]:\nA vida do "+ vilao.nome +": [" + vilao.vida + "]");
 		System.out.println("\n[Kuriboh]:\nVida do " + jogador.nome + ": [" + jogador.vida + "]");
 		System.out.println("\n====================================================S2=========================================================\n");
-		while (vilao.vida >= 10 && jogador.vida>=0 || menuc == false) {
+		while (vilao.vida > 0 && jogador.vida> 0 || menuc == false) {
 			
 			
 			System.out.println("\n[Kuriboh]:\n1.BATER!! (ataque)\n2. AIAIAI (defesa)\n3.MAS EH UM FRACOTE MESMO! (fugir)");
@@ -50,28 +50,39 @@ public class machine {
 			switch(luta) {
 				case 1:
 					vilao.vida = vilao.vida - (jogador.ataque / vilao.protecao);
-					jogador.vida = jogador.vida - (vilao.ataque / jogador.protecao);
+					vilaovidaarredonda = (int) vilao.vida;
 					if (vilao.vida <=0){
 						vilao.vida = 0;
-						System.out.println("\n[Kuriboh]:\n"+ jogador.nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + vilao.vida + "]");
-					System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + jogador.vida + "]");
+						System.out.println("\n[Kuriboh]:\n"+ jogador.nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + vilaovidaarredonda + "]");
+						System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + jogador.vida + "]");
 					} else if (jogador.vida <= 0){
 						jogador.vida = 0;
-						System.out.println("\n[Kuriboh]:\n"+ jogador.nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + vilao.vida + "]");
-					System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + jogador.vida + "]");
-					} else
-					System.out.println("\n[Kuriboh]:\n"+ jogador.nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + vilao.vida + "]");
-					System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + jogador.vida + "]");
-
+						System.out.println("\n[Kuriboh]:\n"+ jogador.nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + vilaovidaarredonda + "]");
+						System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + jogador.vida + "]");
+					} else {
+						System.out.println("\n[Kuriboh]:\n"+ jogador.nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + vilaovidaarredonda + "]");
+						System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + jogador.vida + "]");
+					}
 					break;
+
+
 				case 2:
 					jogador.vida = jogador.vida + (jogador.defesa - vilao.ataque);
 					System.out.println("\n[Kuriboh]:\nVida de " + vilao.nome + ": [" + vilao.vida + "]\n");
 					System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + jogador.vida + "]");
 					break;
+
+
 				case 3:
 					menuc = true;
 					break;
+
+
+				case 4:
+					magias.ataque(jogador, vilao);
+					break;
+
+
 				default:
 					System.out.println("\n[Kuriboh]:\nBATE!! BATE!! BATE!!");
 					break;
