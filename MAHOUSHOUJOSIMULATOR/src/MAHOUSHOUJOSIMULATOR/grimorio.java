@@ -17,7 +17,10 @@ public class grimorio {
 
 
     String ataque (jogador player, viloes vilao) {
-        return ("O " + player.nome + " usa uma magia ofensiva de fogo e atacar diretamente o " + vilao.nome + "\n causando " + magia0 + " de dano mágico.\n\n[Kuriboh]:\nA vida atual do " + vilao.nome + " é " + vilao.vida);
+
+
+        
+        return ("O " + player.nome + " usa uma magia ofensiva de fogo e ataca diretamente o " + vilao.nome + "\n causando " + magia0 + " de dano mágico.\n\n[Kuriboh]:\nA vida atual do " + vilao.nome + " é " + vilao.vida);
 
     }
 }

@@ -3,7 +3,6 @@
  */
 /**
  * @author ACER
- *
- */
-module MAHOUSHOUJOSIMULATOR {
+ * MAHOUSHOUJOSIMULATOR {
 }
+ */

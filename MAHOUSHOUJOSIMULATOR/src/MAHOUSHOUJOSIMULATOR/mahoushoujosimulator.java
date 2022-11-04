@@ -3,8 +3,8 @@ package MAHOUSHOUJOSIMULATOR;
 import java.util.Scanner;
 
 public class mahoushoujosimulator {
-		
-/* 	public static void main(String[] args) {
+
+	/*public static void main (String[] args) {
 		jogador jogador = new jogador();
 		falasjogador falas = new falasjogador();
 		machine pc = new machine();
@@ -13,7 +13,13 @@ public class mahoushoujosimulator {
 		
 		vilao1.nome = "Haku, Senhor do Fogo"; 
 
-		jogador.login();
+
+
+
+
+
+
+		pc.login(jogador);
 		
 		System.out.print("[Kuriboh]:\nTá, tá, agora vamos aos negócios.\nVocê terá que derrotar as três mais mortais criaturas que já pisaram na terra\nO quê? Eu deveria ter falado disso antes?");
 		
@@ -42,6 +48,7 @@ public class mahoushoujosimulator {
 		scan.close();
 	
 	} */
+	
 	public static void main (String[] args){
 		viloes vilao0 = new viloes();
 		jogador player0 = new jogador();
@@ -49,8 +56,9 @@ public class mahoushoujosimulator {
 	 
 		player0.nome = "Good";
 		vilao0.nome = "Evil";
-	
-	
+
+		simula.login(player0);
+
 		simula.combate (vilao0, player0);
 	}
 }
