@@ -58,4 +58,20 @@ public class falasjogador {
 		}
 	}
 
+	void falasair (jogador jogador){
+		int falas;
+		System.out.println("\n[FALAR]\n1. Não entendi \n2. Do que você tá falando? \n(Responder Kuriboh): ");
+		falas = scan.nextInt();
+		switch(falas) {
+			case 1:
+				System.out.println("\n[" + jogador.nome + "]:\nNão entendi");
+				break;
+			case 2:
+				System.out.println("\n[" + jogador.nome + "]:\nDo que você tá falando?");
+				break;
+			default:
+				System.out.println("\n[" + jogador.nome + "]:\n(Prefiro não falar nada)");
+				break;
+		}
+	}
 }

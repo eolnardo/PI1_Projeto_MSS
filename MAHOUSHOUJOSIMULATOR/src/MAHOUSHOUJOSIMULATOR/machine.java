@@ -8,6 +8,7 @@ public class machine {
 	String mascote;
 	int menu, menucombate, luta;
 	boolean sair = false, menuc = false, jogadormorto = false, bossHaku = false;
+	falasjogador falas = new falasjogador();
 	mahoushoujosimulator zero = new mahoushoujosimulator();
 	grimorio magias = new grimorio();
 	int vilaovidaarredonda;
@@ -18,23 +19,32 @@ public class machine {
 
 
 	
-	void menu (viloes vilao, jogador jogador) {
+	void menu (viloes vilao, viloes vilao1, viloes vilao2,jogador jogador) {
 		while(sair==false) {
 			System.out.println("\n====================================================S2=========================================================\n");
 			System.out.print("\n[Kuriboh]:\nO que você quer fazer agora?\n1. LUTAR!!!!!!!\n2. Sair (fracote!)\nComando: ");
 			menu = scan.nextInt();
 			switch(menu) {
 			case 1:
-			/*menucombate(vilao, jogador);*/
+				menucombate(vilao, vilao1, vilao2, jogador);
 				break;
 			case 2:
-				sair = true;
+				System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+				
+				System.out.println("[Kuriboh]:\nO que?\n                                                                         (pressione enter)");
+				scan.nextLine();
+				System.out.println("Achou que seria tão fácil assim?");
+				falas.falasair(jogador);
+				sair = false;
 				break;
+				
 			default:
 				System.out.println("\n[Kuriboh]:\nNão entendi...");
 				sair = false;
 				break;
 			}
+
+			
 		}
 		
 		
@@ -44,7 +54,7 @@ public class machine {
 	void combate (viloes vilao, jogador jogador) {
 		jogador.vida = jogador.vidabase;
 		
-
+		vilao.vida = vilao.vidabase;
 		
 		
 
@@ -81,7 +91,7 @@ public class machine {
 					
 
 				case 2:
-					jogador.vida = jogador.vida + (jogador.defesa - vilao.ataque);
+					jogador.defesa(vilao);
 					System.out.println("\n[Kuriboh]:\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]\n");
 					System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + (jogador.arredonda = (int) (jogador.vida + 0.5f)) + "]");
 					break;
@@ -113,8 +123,9 @@ public class machine {
 			
 			if (vilao.vida<=0) {
 				System.out.println("\n====================================================S2=========================================================\n");
-				System.out.println("[Kuriboh]: " + jogador.nome + " olha para o " + vilao.nome + " que agora está no chão. \nÉ possível ver que o ódio ainda queima em sua alma. " + jogador.nome + " desfere seu último golpe utilizando seu cetro mágico\no vilão explode espalhando pequenas faíscas pelo lugar.");
+				System.out.println("[Kuriboh]:\n" + jogador.nome + " olha para o " + vilao.nome + " que agora está no chão. \nÉ possível ver que o ódio ainda queima em sua alma. " + jogador.nome + " desfere seu último golpe utilizando seu cetro mágico\no vilão explode espalhando pequenas faíscas pelo lugar.");
 				System.out.println("\n[Kuriboh]:\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
+				vilao.vivo = vilao.vivo + 1;
 				jogador.viloesDerrotados++;
 				break;
 			}
@@ -129,8 +140,8 @@ public class machine {
 		mascote = scan.next();
 	} */
 	
-	/*void menucombate (viloes vilao, jogador jogador) {
-		if (vivo[0] == true && vivo [1] == true && vivo[2] == true) {
+	void menucombate (viloes vilao, viloes vilao1, viloes vilao2, jogador jogador) {
+		if (vilao.vivo == 0 && vilao1.vivo == 0 && vilao2.vivo == 0) {
 				while (menuc == false) {
 					System.out.println("\n====================================================S2=========================================================\n");
 				System.out.print("\n[Kuriboh]:\n1. HAKU!!\n2. KIARA!!\n3. O esquisitão... digo, o Kenku.\n4. MENU!\n" + jogador.viloesDerrotados + "\nComando aqui: ");
@@ -140,8 +151,10 @@ public class machine {
 						combate(vilao, jogador);
 						break;
 					case 2:
+						combate(vilao1, jogador);
 						break;
 					case 3:
+						combate(vilao2, jogador);
 						break;
 					case 4:
 						menuc = true;
@@ -153,13 +166,14 @@ public class machine {
 					}
 			}
 		} else {
-			while (vivo[0] == false && vivo [1] == true && vivo[2] == true) {
+		//(vilao.vivo == false && vilao1.vivo == true && vilao2.vivo == true) 
+			while (menuc == false) {
 					System.out.println("\n====================================================S2=========================================================\n");
 						System.out.print("\n[Kuriboh]:\n1. HAKU!! (eliminado)\n2. KIARA!!\n3. O esquisitão... digo, o Kenku.\n4. MENU!\nComando aqui: ");
 						menucombate = scan.nextInt();
 						switch(menucombate) {
 							case 1:
-							System.out.println("\n[Kuriboh]:\nmorreu já, filhão");
+								System.out.println("\n[Kuriboh]:\nmorreu já, filhão");
 								break;
 							case 2:
 								combate(vilao, jogador);
@@ -176,7 +190,7 @@ public class machine {
 					}
 				} 
 			} 
-		}*/
+		}
 		
 		void login (jogador player) {
 			System.out.println("====================================================S2=========================================================\n");

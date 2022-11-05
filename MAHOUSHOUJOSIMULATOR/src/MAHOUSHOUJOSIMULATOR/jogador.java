@@ -18,10 +18,12 @@ public class jogador {
 		vilao.vida = vilao.vida - (ataque / vilao.protecao);
 	}
 	
-	
+	void defesa (viloes vilao){
+		vida = vida - (vilao.ataque / (protecao+4));
+	}
 	
 	void acoes () {
-		System.out.println("\n[Kuriboh]:\n1. BATER!! (ataque) | 2. AIAIAI (defesa) | 3. MAS EH UM FRACOTE MESMO! (fugir) | 4. UIUI CURINHA (cura)");
+		System.out.println("\n[Kuriboh]:\n1. BATER!! (ataque) | 2. AIAIAI (defesa) | 3. MAS EH UM FRACOTE MESMO! (fugir) | 4. UIUI CURINHA (vida+5) (cura)");
 	}
 
 }

@@ -51,15 +51,19 @@ public class mahoushoujosimulator {
 	
 	public static void main (String[] args){
 		viloes vilao0 = new viloes();
+		viloes vilao1 = new viloes();
+		viloes vilao2 = new viloes();
 		jogador player0 = new jogador();
 		machine simula = new machine();
 	 
 		player0.nome = "Good";
 		vilao0.nome = "Evil";
+		vilao1.nome = "Macheavelic";
+		vilao2.nome = "Mastermind";
 
 		//simula.login(player0);
 
-		simula.combate (vilao0, player0);
+		simula.menu (vilao0, vilao1, vilao2, player0);
 	}
 }
 
