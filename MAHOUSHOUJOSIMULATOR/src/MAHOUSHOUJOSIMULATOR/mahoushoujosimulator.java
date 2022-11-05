@@ -57,7 +57,7 @@ public class mahoushoujosimulator {
 		player0.nome = "Good";
 		vilao0.nome = "Evil";
 
-		simula.login(player0);
+		//simula.login(player0);
 
 		simula.combate (vilao0, player0);
 	}
