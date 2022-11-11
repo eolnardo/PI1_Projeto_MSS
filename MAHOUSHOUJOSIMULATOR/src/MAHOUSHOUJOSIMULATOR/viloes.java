@@ -5,6 +5,7 @@ public class viloes {
 	double ataque = 10, defesa = 60, vida , vidabase = 30, protecao = (1 + (defesa/100)), mitigacao = ataque/protecao;
 	int arredonda = (int) (vida + 0.5f);
 	boolean vivo = true;
+	
 	void ataque (jogador jogador){
 		jogador.vida = jogador.vida - (ataque / jogador.protecao);
 	}

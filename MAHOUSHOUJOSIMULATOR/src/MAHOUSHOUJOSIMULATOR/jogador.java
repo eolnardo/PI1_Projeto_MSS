@@ -23,7 +23,7 @@ public class jogador {
 	}
 	
 	void acoes () {
-		System.out.println("\n[Kuriboh]:\n1. BATER!! (ataque) | 2. AIAIAI (defesa) | 3. MAS EH UM FRACOTE MESMO! (fugir) | 4. UIUI CURINHA (vida+5) (cura)");
+		System.out.println("\n[Kuriboh]:\n1. atacar!! (ataque) | 2. proteger! (defesa) | 3. CURINHA (vida+5) (cura)  | 4. MAS EH UM FRACOTE MESMO! (fugir)");
 	}
 
 }
