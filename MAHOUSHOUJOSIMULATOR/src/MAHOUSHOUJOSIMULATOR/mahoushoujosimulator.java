@@ -26,7 +26,7 @@ public class mahoushoujosimulator {
 		falas.fala1(jogador);
 		System.out.println("\n[Kuriboh]:\nEu só tô brincando!\nAlguns piores já vieram antes, esses são fichinha!");
 		falas.fala2(jogador);
-		System.out.println("\n[Kuriboh]:\nTá bom, fracote! Vamos lá. Existem três seres que você deve eliminar\nSe liga, primeiro tem a Kiara. Ela é do MAL!");
+		System.out.println("\n[Kuriboh]:\nTá bom, fracote! Vamos lá. Existem três seres que você deve eliminar\nSe liga, primeiro tem a Kiara. Ela é puro MAL!");
 		scan.nextLine();
 		System.out.println("\n[Kuriboh]:\nKiara é conhecida por dominar a água! Suas habilidades são incríveis!\n(Ela foi inspirada em avatar então se cuida).");
 		scan.nextLine();
@@ -50,20 +50,21 @@ public class mahoushoujosimulator {
 	} */
 	
 	public static void main (String[] args){
-		viloes vilao0 = new viloes();
-		viloes vilao1 = new viloes();
-		viloes vilao2 = new viloes();
+		viloes haku = new viloes();
+		viloes kiara = new viloes();
+		viloes kenku = new viloes();
 		jogador player0 = new jogador();
 		machine simula = new machine();
-	 
-		player0.nome = "Good";
-		vilao0.nome = "Evil";
-		vilao1.nome = "Macheavelic";
-		vilao2.nome = "Mastermind";
-
+		
+		//============================= CRIAÇÃO DE VILÕES ===============================
+		player0.nome = "Player";
+		haku.nome = "Haku";
+		kiara.nome = "Kiara";
+		kenku.nome = "Kenku";
+		//============================= CRIAÇÃO DE VILÕES ===============================
 		//simula.login(player0);
 
-		simula.menu (vilao0, vilao1, vilao2, player0);
+		simula.menu (haku, kiara, kenku, player0);
 	}
 }
 
