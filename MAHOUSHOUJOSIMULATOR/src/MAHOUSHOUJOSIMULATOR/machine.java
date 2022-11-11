@@ -66,6 +66,7 @@ public class machine {
 			if (jogador.vida>0){
 			jogador.acoes();
 			luta = scan.nextInt();
+			scan.nextLine();
 			System.out.println("\n====================================================S2=========================================================\n");
 			
 			
@@ -78,41 +79,29 @@ public class machine {
 					}
 					if (vilao.vida <=0){
 						vilao.vida = 0;
-						System.out.println("\n[Kuriboh]:\n"+ jogador.nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
-						System.out.println("\nVida de " + jogador.nome + ": [" + (jogador.arredonda = (int) (jogador.vida + 0.5f)) + "]");
+						printarvida(jogador, vilao);
 					} else {
-						System.out.println("\n[Kuriboh]:\n"+ jogador.nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
-						System.out.println("\nVida de " + jogador.nome + ": [" + (jogador.arredonda = (int) (jogador.vida + 0.5f))+ "]");
+						printarvida(jogador, vilao);
 					}
-					
-					
 					break;
-
-					
-
 				case 2:
 					jogador.defesa(vilao);
 					System.out.println("\n[Kuriboh]:\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]\n");
 					System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + (jogador.arredonda = (int) (jogador.vida + 0.5f)) + "]");
 					break;
-
-
 				case 3:
 					menuc = true;
 					break;
-
-
 				case 4:
 					magias.kuriboh(jogador);
 					break;
-
-
 				default:
 					System.out.println("\n[Kuriboh]:\nBATE!! BATE!! BATE!!");
 					break;
 				}
 			}
 			
+
 			if (jogador.vida < 0){
 				System.out.println("\n====================================================S2=========================================================\n");
 				jogador.vida = 0;
@@ -146,6 +135,7 @@ public class machine {
 					System.out.println("\n====================================================S2=========================================================\n");
 				System.out.print("\n[Kuriboh]:\n1. HAKU!!\n2. KIARA!!\n3. O esquisitão... digo, o Kenku.\n4. MENU!\n" + jogador.viloesDerrotados + "\nComando aqui: ");
 				menucombate = scan.nextInt();
+				scan.nextLine();
 				switch(menucombate) {
 					case 1:
 						combate(vilao, jogador);
@@ -228,7 +218,7 @@ public class machine {
 						break;
 					case 4:
 						System.out.println("[Kuriboh]:\nHaha, thats funny, você quase me pegou\n(tradução: que engraçado)");
-						System.out.print("\n[Kuriboh]:\n1. Vesitdo Colegial <3\n2. Cropped e saia :3\n3. Usar minhas roupas atuais >:c\nDigite aqui o comando: ");
+						System.out.print("\n[Kuriboh]:\n1. Vestido Colegial <3\n2. Cropped e saia :3\n3. Usar minhas roupas atuais >:c\nDigite aqui o comando: ");
 						break;
 					default:
 						System.out.println("[Kuriboh]:\nOlha, eu preciso que você escolha uma roupa logo...");
@@ -241,6 +231,11 @@ public class machine {
 				}
 			}
 			System.out.println("\n====================================================S2=========================================================\n");
-	}
+		}
+
+		void printarvida (jogador jogador, viloes vilao){
+			System.out.println("\n[Kuriboh]:\n"+ jogador.nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
+						System.out.println("\nVida de " + jogador.nome + ": [" + (jogador.arredonda = (int) (jogador.vida + 0.5f)) + "]");
+		}
 	}
 	//HAKU
