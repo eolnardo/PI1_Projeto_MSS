@@ -6,17 +6,13 @@ public class machine {
 	//System.out.println("\n[Kuriboh]:\n");
 	Scanner scan = new Scanner(System.in);
 	String mascote;
-	int menu, menucombate, luta;
+	int menu, menucombate = 0, luta;
 	boolean sair = false, menuc = false, jogadormorto = false, bossHaku = false;
 	falasjogador falas = new falasjogador();
 	mahoushoujosimulator zero = new mahoushoujosimulator();
 	grimorio magias = new grimorio();
 	int vilaovidaarredonda;
-	/* boolean[] vivo = new boolean[3];
-	vivo[0] = true;
-	vivo[1] = true;
-	vivo[2] = true; */ 
-
+	
 
 	//---------------------------------------------- MENU PRINCIPAL --------------------------------------------------
 
@@ -30,11 +26,7 @@ public class machine {
 
 			switch(menu) {
 			case 1:
-				if(vilao.vivo == false){
-				menucombate1off(vilao1, vilao2, jogador);
-				} else {
-					menucombate(vilao, vilao1, vilao2, jogador);
-				}
+				
 				
 				break;
 			case 2:
@@ -62,7 +54,7 @@ public class machine {
 
 	//---------------------------------------------------- COMBATE HAKU ---------------------------------------------
 
-	void combate1 (viloes vilao, jogador jogador) {
+	boolean combate1 (viloes vilao, jogador jogador) {
 		jogador.vida = jogador.vidabase;
 		
 		vilao.vida = vilao.vidabase;
@@ -102,7 +94,7 @@ public class machine {
 						break;
 					case 4:
 						menuc = true;
-						break;
+						return false;
 					default:
 						System.out.println("\n[Kuriboh]:\nBATE!! BATE!! BATE!!");
 						break;
@@ -122,12 +114,11 @@ public class machine {
 				System.out.println("\n====================================================S2=========================================================\n");
 				System.out.println("[Kuriboh]:\n" + jogador.nome + " olha para o " + vilao.nome + " que agora está no chão. \nÉ possível ver que o ódio ainda queima em sua alma. " + jogador.nome + " desfere seu último golpe utilizando seu cetro mágico\no vilão explode espalhando pequenas faíscas pelo lugar.");
 				System.out.println("\n[Kuriboh]:\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
-				vilao.vivo = false;
-				jogador.viloesDerrotados++;
-				break;
+				bossHaku = true;
+				return true;
 			}
 		}
-		
+		return false;
 	}
 		
 	
@@ -179,7 +170,8 @@ public class machine {
 					}
 			}
 		}
-	void menucombate1off(viloes vilao2, viloes vilao3, jogador jogador){
+	void menucombate1off(viloes vilao, viloes vilao2, viloes vilao3, jogador jogador){
+		if (combate1(vilao, jogador) == true){		
 			while (menuc == false) {
 				System.out.println("\n====================================================S2=========================================================\n");
 					System.out.print("\n[Kuriboh]:\n1. (eliminado)\n2. KIARA!!\n3. O esquisitão... digo, o Kenku.\n4. MENU!\nComando aqui: ");
@@ -203,8 +195,9 @@ public class machine {
 							menuc = false;
 							break;
 				}
-			} 
-		}
+			}
+		} 
+	}
 		// if (vilao1.vivo == false && vilao2.vivo == true && vilao3.vivo == true){
 		
 		// } else if (vilao1.vivo == true && vilao2.vivo == false && vilao3.vivo == true){
@@ -267,6 +260,12 @@ public class machine {
 		}
 
 
+	void menusss (viloes vilao, viloes vilao1, viloes vilao2, jogador jogador){
+		if(combate1(vilao, jogador)){
+			menucombate(vilao1, vilao2, vilao2, jogador);
+		}
+		menucombate1off(vilao1, vilao2, vilao2, jogador);
+	}
 	// ========================================= CRIAÇÃO DO PERSONAGEM ====================================================
 
 	void login (jogador player) {
