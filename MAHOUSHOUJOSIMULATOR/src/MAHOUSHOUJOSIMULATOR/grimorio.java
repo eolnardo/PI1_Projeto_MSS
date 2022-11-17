@@ -17,8 +17,6 @@ public class grimorio {
 
 
     void kuriboh (jogador player) {
-
-
         kuriboh--;
         if (kuriboh>0){
             System.out.println( player.nome + "  pede ajuda ao Kuriboh! \nKuriboh interfere curando o jogador em +" + 5 + " de vida.\n\n[Kuriboh]:\nA vida atual do " + player.nome + " é " + (player.arredonda = (int) (player.vida = player.vida + 5)) + "\nRestam " + kuriboh + " curas.");   
@@ -26,9 +24,6 @@ public class grimorio {
     }
 
     String ataque (jogador player, viloes vilao) {
-
-
-        
         return (player.nome + " usa uma magia ofensiva de fogo e ataca diretamente o " + vilao.nome + "\n causando " + magia0 + " de dano mágico.\n\n[Kuriboh]:\nA vida atual do " + vilao.nome + " é " + vilao.vida);
 
     }
