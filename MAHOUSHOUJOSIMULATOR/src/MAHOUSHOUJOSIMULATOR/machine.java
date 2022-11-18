@@ -11,7 +11,7 @@ public class machine {
 	falasjogador falas = new falasjogador();
 	mahoushoujosimulator zero = new mahoushoujosimulator();
 	grimorio magias = new grimorio();
-	int combate = 0;
+	boolean combate1 = false, combate2 = false, combate3 = false;
 	
 
 	//---------------------------------------------- MENU PRINCIPAL --------------------------------------------------
@@ -62,6 +62,7 @@ public class machine {
 		System.out.println("\n[Kuriboh]:\nVida do "+ vilao.nome +": [" + vilao.vida + "]");
 		System.out.println("\n[Kuriboh]:\nVida do " + jogador.nome + ": [" + jogador.vida + "]");
 		System.out.println("\n====================================================S2=========================================================\n");
+
 		while (vilao.vida > 0 && jogador.vida> 0 && menuc == false) {
 			if (jogador.vida>0){
 				jogador.acoes();
@@ -114,7 +115,7 @@ public class machine {
 				System.out.println("\n====================================================S2=========================================================\n");
 				System.out.println("[Kuriboh]:\n" + jogador.nome + " olha para o " + vilao.nome + " que agora está no chão. \nÉ possível ver que o ódio ainda queima em sua alma. " + jogador.nome + " desfere seu último golpe utilizando seu cetro mágico\no vilão explode espalhando pequenas faíscas pelo lugar.");
 				System.out.println("\n[Kuriboh]:\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
-				combate++;
+				combate2 = true; magias.kuriboh = 4;
 				menuc = true;
 			}
 		}
@@ -124,7 +125,70 @@ public class machine {
 	//================================================ COMBATE KIARA ===================================================
 
 	void combate2 (viloes vilao, jogador jogador){
-		vilao.nome = "Kiara, a Rainha dos Oceanos"; 
+		vilao.nome = "Kiara, a Rainha dos Oceanos";
+		jogador.vida = jogador.vidabase;
+
+		vilao.vida = vilao.vidabase;
+		System.out.println("\n====================================================S2=========================================================\n");
+		System.out.println("\n[Kuriboh]:\nVida do "+ vilao.nome +": [" + vilao.vida + "]");
+		System.out.println("\n[Kuriboh]:\nVida do " + jogador.nome + ": [" + jogador.vida + "]");
+		System.out.println("\n====================================================S2=========================================================\n");
+		
+		while (vilao.vida > 0 && jogador.vida> 0 && menuc == false) {
+			if (jogador.vida>0){
+				jogador.acoes();
+				luta = scan.nextInt();
+				scan.nextLine();
+				System.out.println("\n====================================================S2=========================================================\n");
+				
+				
+				switch(luta) {
+					case 1:
+						jogador.ataque(vilao);
+						if (vilao.vida>0){
+							System.out.println("\n[Kuriboh]:\n" + vilao.nome + " dispara uma bola de fogo que atinge " + jogador.nome + ".");
+							vilao.ataque(jogador);
+						}
+						if (vilao.vida <=0){
+							vilao.vida = 0;
+							printarvida(jogador, vilao);
+						} else {
+							printarvida(jogador, vilao);
+						}
+						break;
+					case 2:
+						jogador.defesa(vilao);
+						break;
+						case 3:
+						magias.kuriboh(jogador);
+						break;
+					case 4:
+						menuc = true;
+						break;
+					default:
+						System.out.println("\n[Kuriboh]:\nBATE!! BATE!! BATE!!");
+						break;
+					}
+			}
+			
+
+			if (jogador.vida <=0){
+				System.out.println("\n====================================================S2=========================================================\n");
+				jogador.vida = 0;
+				System.out.println("\n[Kuriboh]:\n"+ vilao.nome + " avança até " + jogador.nome +  ", e coloca as duas mãos em seu rosto, num piscar de olhos, \no corpo inteiro do " + jogador.nome + " está em chamas.");
+				System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + (jogador.arredonda = (int) (jogador.vida + 0.5f)) + "]");
+				menuc = true;
+			} 
+			
+			if (vilao.vida<=0) {
+				System.out.println("\n====================================================S2=========================================================\n");
+				System.out.println("[Kuriboh]:\n" + jogador.nome + " olha para o " + vilao.nome + " que agora está no chão. \nÉ possível ver que o ódio ainda queima em sua alma. " + jogador.nome + " desfere seu último golpe utilizando seu cetro mágico\no vilão explode espalhando pequenas faíscas pelo lugar.");
+				System.out.println("\n[Kuriboh]:\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
+				combate1 = true; magias.kuriboh = 3;
+				menuc = true;
+			}
+		}
+
 	}
 
 
@@ -144,7 +208,7 @@ public class machine {
 	void menucombate (viloes vilao1, viloes vilao2, viloes vilao3, jogador jogador) {
 				while (menuc == false) {
 					System.out.println("\n====================================================S2=========================================================\n");
-					System.out.print("\n[Kuriboh]:\n1. Haku, O senhor do Fogo" + " | 2. Kiara, a Rainha dos Oceanos" + " | 3. Kenku, o Mestre do Gelo" + ". | 4. MENU!\n Número atual de viões deorrtados:\nComando aqui: ");
+					System.out.print("\n[Kuriboh]:\n1. Haku, O senhor do Fogo" + " | 2. Kiara, a Rainha dos Oceanos" + " | 3. Kenku, o Mestre do Gelo" + ". | 4. MENU!\nComando aqui: ");
 					menucombate = scan.nextInt();
 					scan.nextLine();
 					switch(menucombate) {
@@ -167,10 +231,10 @@ public class machine {
 						}
 				}
 		}
-	void menucombate1off(viloes vilao, viloes vilao2, viloes vilao3, jogador jogador){	
+	void menucombate1(viloes vilao, viloes vilao2, viloes vilao3, jogador jogador){	
 		while (menuc == false) {
 			System.out.println("\n====================================================S2=========================================================\n");
-				System.out.print("\n[Kuriboh]:\n1. (eliminado)\n2. KIARA!!\n3. O esquisitão... digo, o Kenku.\n4. MENU!\nComando aqui: ");
+				System.out.print("\n[Kuriboh]:\n1. (eliminado) Haku, O senhor do Fogo | 2. Kiara, a Rainha dos Oceanos" + " | 3. Kenku, o Mestre do Gelo" + ". | 4. MENU!\nComando aqui: ");
 				menucombate = scan.nextInt();
 				switch(menucombate) {
 					case 1:
@@ -193,8 +257,87 @@ public class machine {
 			}
 		}
 	}
-		
 
+	void menucombate2 (viloes vilao, viloes vilao2, viloes vilao3, jogador jogador){	
+		while (menuc == false) {
+			System.out.println("\n====================================================S2=========================================================\n");
+				System.out.print("\n[Kuriboh]:\n1. (eliminado) Haku, O senhor do Fogo | 2. (eliminado) Kiara, a Rainha dos Oceanos" + " | 3. Kenku, o Mestre do Gelo" + ". | 4. MENU!\nComando aqui: ");
+				menucombate = scan.nextInt();
+				switch(menucombate) {
+					case 1:
+						System.out.println("\n[Kuriboh]:\nMorreu já, filhão");
+						menuc = false;
+						break;
+					case 2:
+						System.out.println("\n[Kuriboh]:\nNão está mais entre nós");
+						break;
+					case 3:
+						combate3(vilao3, jogador);
+						break;
+					case 4:
+						menuc = true;
+						break;
+					default:
+						System.out.println("\n[Kuriboh]:\nVai lutar ou não? Não enche!");
+						menuc = false;
+						break;
+			}
+		}
+	}
+	
+	void menucombate3 (viloes vilao, viloes vilao2, viloes vilao3, jogador jogador){	
+		while (menuc == false) {
+			System.out.println("\n====================================================S2=========================================================\n");
+				System.out.print("\n[Kuriboh]:\n1. (eliminado) Haku, O senhor do Fogo | 2. Kiara, a Rainha dos Oceanos" + " | 3. Kenku, o Mestre do Gelo" + ". | 4. MENU!\nComando aqui: ");
+				menucombate = scan.nextInt();
+				switch(menucombate) {
+					case 1:
+						combate1(vilao, jogador);
+						menuc = false;
+						break;
+					case 2:
+						System.out.println("\n[Kuriboh]:\nNão está mais entre nós");
+						break;
+					case 3:
+						combate3(vilao3, jogador);
+						break;
+					case 4:
+						menuc = true;
+						break;
+					default:
+						System.out.println("\n[Kuriboh]:\nVai lutar ou não? Não enche!");
+						menuc = false;
+						break;
+			}
+		}
+	}
+	
+	void menucombate4 (viloes vilao, viloes vilao2, viloes vilao3, jogador jogador){	
+		while (menuc == false) {
+			System.out.println("\n====================================================S2=========================================================\n");
+				System.out.print("\n[Kuriboh]:\n1. (eliminado) Haku, O senhor do Fogo | 2. Kiara, a Rainha dos Oceanos" + " | 3. Kenku, o Mestre do Gelo" + ". | 4. MENU!\nComando aqui: ");
+				menucombate = scan.nextInt();
+				switch(menucombate) {
+					case 1:
+						combate1(vilao, jogador);
+						menuc = false;
+						break;
+					case 2:
+						System.out.println("\n[Kuriboh]:\nNão está mais entre nós");
+						break;
+					case 3:
+						combate3(vilao3, jogador);
+						break;
+					case 4:
+						menuc = true;
+						break;
+					default:
+						System.out.println("\n[Kuriboh]:\nVai lutar ou não? Não enche!");
+						menuc = false;
+						break;
+			}
+		}
+	}
 	//========================================== AÇÕES DO SISTEMA =======================================================
 
 	void printarvida (jogador jogador, viloes vilao){
@@ -207,10 +350,16 @@ public class machine {
 
 
 	void menusss (viloes vilao, viloes vilao1, viloes vilao2, jogador jogador){
-		if(combate==0){
+		if(combate1 == false){
 			menucombate(vilao1, vilao2, vilao2, jogador);
-		} else if (combate == 1){
-			menucombate1off(vilao1, vilao2, vilao2, jogador);
+		} else if (combate1 == true){
+			menucombate1(vilao1, vilao2, vilao2, jogador);
+		} else if (combate1 == true && combate2 == true){
+			menucombate2(vilao1, vilao2, vilao2, jogador);
+		} else if (combate3 == true){
+			menucombate3(vilao1, vilao2, vilao2, jogador);
+		} else if (combate4 == true){
+			menucombate4(vilao1, vilao2, vilao2, jogador);
 		}
 	}
 	// ========================================= CRIAÇÃO DO PERSONAGEM ====================================================
