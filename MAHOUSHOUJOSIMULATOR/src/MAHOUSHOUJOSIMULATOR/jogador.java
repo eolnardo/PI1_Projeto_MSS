@@ -16,9 +16,9 @@ public class jogador {
 	void ataque (viloes vilao){
 		modoataque = rand.nextInt(2);
 		if(modoataque == 0){
-			System.out.println("\n[Kuriboh]:\n"+ nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
-		} else if (ataque == 1) {
-			System.out.println("\n[Kuriboh]:\n"+ nome + " salta em direção ao vilão e realiza uma série de ataques com seu cetro mágico " + vilao.nome + ".\n\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
+			System.out.println("\n[Kuriboh]:\n"+ nome + " utiliza seu cetro mágico e dispara uma rajada de luz que atinge " + vilao.nome + "\n");
+		} else if (modoataque == 1) {
+			System.out.println("\n[Kuriboh]:\n"+ nome + " salta em direção " + vilao.nome + " e realiza uma série de ataques com seu cetro mágico\n");
 		}
 		vilao.vida = vilao.vida - (ataque / vilao.protecao);
 	}

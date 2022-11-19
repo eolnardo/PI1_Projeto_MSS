@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 public class mahoushoujosimulator {
 	
-	public static void main (String[] args) {
+	/*public static void main (String[] args) {
 		jogador jogador = new jogador();
 		falasjogador falas = new falasjogador();
 		machine pc = new machine();
 		viloes haku = new viloes();
 		viloes kiara = new viloes();
 		viloes kenku = new viloes();
+		viloes blackhole = new viloes();
 		Scanner scan = new Scanner(System.in);
 
 
@@ -29,39 +30,28 @@ public class mahoushoujosimulator {
 		System.out.println("                                                                                                 pressione enter");	scan.nextLine();
 		System.out.println("\n[Kuriboh]:\nSerá que vem um original? E pra sua e minha surpresa, sim(?)\nTá afim de lutar contra alguém que tem poderes de gelo???\nNão? Pois é, eu também não estaria, mas não é como queremos nhe\nKenku, é o Mestre do GELO*");
 		System.out.println("                                                                                                 pressione enter");	scan.nextLine();
-
-		//System.out.println("\n[Kuriboh]:\n");
 		
 		System.out.println("\n====================================================S2=========================================================\n");
 		
 
-		pc.menu(haku, kiara, kenku, jogador);
+		pc.menu(haku, kiara, kenku, jogador, blackhole);
 		
 		System.out.println("\n====================================================S2=========================================================\n");
-		
-		//VILOEEEEEEEEEEEEEEES
-		
-		
+	
 		scan.close();
 	
-	}
+	}*/
 	
-	/*public static void main (String[] args){
+	public static void main (String[] args){
 		viloes haku = new viloes();
 		viloes kiara = new viloes();
 		viloes kenku = new viloes();
+		viloes boss = new viloes();
 		jogador player0 = new jogador();
 		machine simula = new machine();
-		
-		//============================= CRIAÇÃO DE VILÕES ===============================
 		player0.nome = "Player";
-		haku.nome = "Haku";
-		kiara.nome = "Kiara";
-		kenku.nome = "Kenku";
-		//============================= CRIAÇÃO DE VILÕES ===============================
-		//simula.login(player0);
 
-		simula.menu (haku, kiara, kenku, player0);
-	}*/
+		simula.menu (haku, kiara, kenku, player0, boss);
+	}
 }
 

@@ -18,8 +18,10 @@ public class grimorio {
 
     void kuriboh (jogador player) {
         kuriboh--;
-        if (kuriboh>0){
-            System.out.println( player.nome + "  pede ajuda ao Kuriboh! \nKuriboh interfere curando o jogador em +" + 5 + " de vida.\n\n[Kuriboh]:\nA vida atual do " + player.nome + " é " + (player.arredonda = (int) (player.vida = player.vida + 5)) + "\nRestam " + kuriboh + " curas.");   
+        if (kuriboh>=0){
+            System.out.println( player.nome + "  pede ajuda ao Kuriboh! \nKuriboh interfere curando o jogador em +5 de vida.\n\n[Kuriboh]:\nA vida atual do " + player.nome + " é " + (player.arredonda = (int) (player.vida = player.vida + 5)) + "\nRestam " + kuriboh + " curas.");   
+        } else {
+            System.out.println("[Kuriboh]:\nNão consigo mais te curar!");
         }
     }
 
