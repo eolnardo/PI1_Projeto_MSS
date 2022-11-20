@@ -288,8 +288,80 @@ public class machine {
 
 	}
 
+	//============================================= COMBATE FINAL =======================================================
 
-	//================================================== MENU ESCOLHER VILÃO ===========================================
+	void combatefinal (jogador jogador, viloes vilao){
+		
+		if (morreuUmaVez>0){
+			magias.kuriboh += 3;
+			morreuUmaVez--;
+		}
+
+		jogador.vida = jogador.vidabase;
+		vilao.vida = vilao.vidabase;
+		System.out.println("\n====================================================S2=========================================================\n");
+		System.out.println("\n[Kuriboh]:\nVida do "+ vilao.nome +": [" + vilao.vida + "]");
+		System.out.println("\n[Kuriboh]:\nVida do " + jogador.nome + ": [" + jogador.vida + "]");
+		System.out.println("\n====================================================S2=========================================================\n");
+
+		while (vilao.vida > 0 && jogador.vida> 0 && menuc == false) {
+			if (jogador.vida>0){
+				System.out.println("\n[Kuriboh]:\n1. atacar!! (ataque) | 2. proteger! (defesa) | 3. CURINHA (vida+5) (cura) | 4. magia de luz (ataque) | 5. fuga (fugir)");
+				luta = scan.nextInt();
+				scan.nextLine();
+				System.out.println("\n====================================================S2=========================================================\n");
+				
+				
+				switch(luta) {
+					case 1:
+						jogador.ataque(vilao);
+							if (vilao.vida>0){
+							System.out.println("\n[Kuriboh]:\n" + vilao.nome + " dispara vários cristais de gelo na direção de " + jogador.nome + ".");
+							vilao.ataque(jogador);
+						}
+						if (vilao.vida <=0){
+							vilao.vida = 0;
+						} 
+						break;
+					case 2:
+						jogador.defesa(vilao);
+						break;
+						case 3:
+						magias.kuriboh(jogador);
+						break;
+					case 4:
+						magias.magiadeluz(jogador, vilao);
+					case 5:
+						menuc = true;
+						break;
+					default:
+						System.out.println("\n[Kuriboh]:\nBATE!! BATE!! BATE!!");
+						break;
+					}
+			}
+			
+			printarvida(jogador, vilao);
+			
+			if (jogador.vida <=0){
+				System.out.println("\n====================================================S2=========================================================\n");
+				jogador.vida = 0;
+				System.out.println("\n[Kuriboh]:\n"+ vilao.nome + " ergue seus dois braços na direção de " + jogador.nome +  ", o chão ao seu redor começa a tremer, \ne num piscar de olhos, um enorme domo se forma em volta de " + jogador.nome + ", que fica preso em um vácuo.");
+				System.out.println("\n[Kuriboh]:\nVida de " + jogador.nome + ": [" + (jogador.arredonda = (int) (jogador.vida + 0.5f)) + "]");
+				morreuUmaVez++;
+				menuc = true;
+			} 
+			
+			if (vilao.vida<=0) {
+				System.out.println("\n====================================================S2=========================================================\n");
+				System.out.println("[Kuriboh]:\n" + jogador.nome + " olha para o " + vilao.nome + " que agora está no chão\ncomeça a se contorcer e explode espalhando várias cristais de gelo pelo ar.");
+				System.out.println("\n[Kuriboh]:\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
+				combate3 = true; magias.kuriboh += 3; 
+				menuc = true;
+			}
+		}
+	}
+
+	//========================================== MENU ESCOLHER VILÃO =====================================================
 
 	void menucombate (viloes vilao1, viloes vilao2, viloes vilao3, jogador jogador) {
 				while (menuc == false) {
@@ -518,12 +590,17 @@ public class machine {
 		}else if (combate1 == true && combate2 == false && combate3 == true){
 			menucombate5(vilao1, vilao2, vilao2, jogador);
 		}else if (combate1 == true && combate2 == true && combate3 == true){
-			jogador.ataque = jogador.ataque + 40;
-			jogador.defesa = jogador.defesa + 110;
-			jogador.vidabase += 180;
-			System.out.println("\n[Kuriboh]:\nParabéns, você derrotou os vassalos!\nAgora você pode encerrar seu destino se desejar.\nCaso ainda não esteja satisfeito, posso revelar o próximo nível!");
+			menuc = false;
+			vilaoespecial.vidabase = 250;
+			vilaoespecial.ataque = 60;
+			vilaoespecial.defesa = 200;
 			
-			System.out.println("n[Kuriboh]:\nDeseja realizar o seu desejo? (1 - Não || Qualquer coisa - Sim)\nResponder: ");
+			jogador.ataque = 50;
+			jogador.defesa = 200;
+			jogador.vidabase = 200; magias.kuriboh = 5;
+			System.out.println("\n[Kuriboh]:\nParabéns, você derrotou os vassalos!\nAgora você pode encerrar seu destino se desejar.\nCaso ainda não esteja satisfeito, posso revelar o próximo nível!");
+		
+			System.out.println("[Kuriboh]:\nDeseja realizar o seu desejo? (1 - Não || Qualquer coisa - Sim)\nResponder: ");
 			int finalizar = scan.nextInt();
 
 			switch(finalizar){
@@ -531,17 +608,15 @@ public class machine {
 					fim = true;
 					break;
 				default:
+					magias.boss = true;
 					break;
-			
-			
 			}
 
-
 			if (fim == true){
-				System.out.println("n[Kuriboh]:\nAh, que pena. Espero te ver de novo um dia!");
+				System.out.println("[Kuriboh]:\nAh, que pena. Espero te ver de novo um dia!");
 				sair = true;
 			} else {
-				menucombateespecial (jogador, vilaoespecial);
+				combatefinal(jogador, vilaoespecial);
 			}
 		}
 	}

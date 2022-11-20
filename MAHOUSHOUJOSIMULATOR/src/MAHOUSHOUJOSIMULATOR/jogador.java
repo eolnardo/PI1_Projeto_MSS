@@ -13,6 +13,7 @@ public class jogador {
 	int arredonda = (int) (vida + 0.5f);
 	Random rand = new Random();
 
+
 	void ataque (viloes vilao){
 		modoataque = rand.nextInt(2);
 		if(modoataque == 0){
@@ -29,6 +30,7 @@ public class jogador {
 	
 	void acoes () {
 		System.out.println("\n[Kuriboh]:\n1. atacar!! (ataque) | 2. proteger! (defesa) | 3. CURINHA (vida+5) (cura)  | 4. MAS EH UM FRACOTE MESMO! (fugir)");
+		
 	}
 
 }
