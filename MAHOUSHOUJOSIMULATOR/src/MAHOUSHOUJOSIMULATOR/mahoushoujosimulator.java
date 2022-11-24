@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class mahoushoujosimulator {
 	
-	/*public static void main (String[] args) {
+	public static void main (String[] args) {
 		jogador jogador = new jogador();
 		falasjogador falas = new falasjogador();
 		machine pc = new machine();
@@ -40,18 +40,18 @@ public class mahoushoujosimulator {
 	
 		scan.close();
 	
-	}*/
-	
-	public static void main (String[] args){
-		viloes haku = new viloes();
-		viloes kiara = new viloes();
-		viloes kenku = new viloes();
-		viloes boss = new viloes();
-		jogador player0 = new jogador();
-		machine simula = new machine();
-		player0.nome = "Player";
-
-		simula.menu (haku, kiara, kenku, player0, boss);
 	}
+	
+	// public static void main (String[] args){
+	// 	viloes haku = new viloes();
+	// 	viloes kiara = new viloes();
+	// 	viloes kenku = new viloes();
+	// 	viloes boss = new viloes();
+	// 	jogador player0 = new jogador();
+	// 	machine simula = new machine();
+	// 	player0.nome = "Player";
+
+	// 	simula.combatefinal(player0, boss);
+	// }
 }
 
