@@ -6,7 +6,7 @@ public class machine {
 	// System.out.println("\n[Kuriboh]:\n");
 	Scanner scan = new Scanner(System.in);
 	String mascote;
-	int menu, menucombate = 0, luta = 0, morreuUmaVez = 0;
+	int menu, menucombate = 0, luta = 0, morreuUmaVez = 0, finalizar = 0;
 	boolean sair = false, menuc = false, jogadormorto = false, bossHaku = false;
 	falasjogador falas = new falasjogador();
 	mahoushoujosimulator zero = new mahoushoujosimulator();
@@ -399,6 +399,7 @@ public class machine {
 				combate3 = true;
 				magias.kuriboh += 3;
 				menuc = true;
+				fim = true;
 			}
 		}
 	}
@@ -587,7 +588,7 @@ public class machine {
 		while (menuc == false) {
 			System.out.println(
 					"\n====================================================S2=========================================================\n");
-			System.out.print("\n[Kuriboh]:\n1. haku, O senhor do Fogo | 2.(eliminado) Kiara, a Rainha dos Oceanos"
+			System.out.print("\n[Kuriboh]:\n1. Haku, O senhor do Fogo | 2.(eliminado) Kiara, a Rainha dos Oceanos"
 					+ " | 3.Kenku, o Mestre do Gelo" + ". | 4. MENU!\nComando aqui: ");
 			menucombate = scan.nextInt();
 			switch (menucombate) {
@@ -632,6 +633,8 @@ public class machine {
 	}
 
 	void menusss(viloes vilao, viloes vilao1, viloes vilao2, jogador jogador, viloes vilaoespecial) {
+		
+
 		if (combate1 == false && combate2 == false && combate3 == false) {
 			menucombate(vilao1, vilao2, vilao2, jogador);
 		} else if (combate1 == true && combate2 == false && combate3 == false) {
@@ -661,7 +664,7 @@ public class machine {
 
 			System.out.println(
 					"[Kuriboh]:\nDeseja realizar o seu desejo? (1 - Não || Qualquer coisa - Sim)\nResponder: ");
-			int finalizar = scan.nextInt();
+			finalizar = scan.nextInt();
 
 			switch (finalizar) {
 				case 1:
@@ -682,7 +685,7 @@ public class machine {
 	}
 	// ========================================= CRIAÇÃO DO PERSONAGEM ====================================================
 
-	void login(jogador player) {
+	void login (jogador player) {
 		System.out.println(
 				"====================================================S2=========================================================\n");
 		System.out.println(
