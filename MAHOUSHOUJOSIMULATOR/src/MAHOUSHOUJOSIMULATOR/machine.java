@@ -7,7 +7,7 @@ public class machine {
 	Scanner scan = new Scanner(System.in);
 	String mascote;
 	int menu, menucombate = 0, luta = 0, morreuUmaVez = 0, finalizar = 0;
-	boolean sair = false, menuc = false, jogadormorto = false, bossHaku = false;
+	boolean sair = false, menuc = false, jogadormorto = false, bossHaku = false, combatefinal = false;
 	falasjogador falas = new falasjogador();
 	mahoushoujosimulator zero = new mahoushoujosimulator();
 	grimorio magias = new grimorio();
@@ -403,10 +403,10 @@ public class machine {
 						"\n====================================================S2=========================================================\n");
 				System.out.println("[Kuriboh]:\n" + jogador.nome + " segura seu cetro com as duas mãos, nas duas pontas começam a se formar dois globos de energia.\nO cetro começa a girar no ar e emitir um forte brilho. Uma rajda energética dispara\nna direção do " + vilao.nome + ". Após alguns segundos o fluxo de energia diminue, \ne no lugar aonde estava a criatura, agora existe apenas uma sombra no chão.");
 				System.out.println("\n[Kuriboh]:\nVida de " + vilao.nome + ": [" + (vilao.arredonda = (int) (vilao.vida + 0.5f)) + "]");
-				combate3 = true;
+				combatefinal = true;
+				sair = true;
 				magias.kuriboh += 3;
 				menuc = true;
-				fim = true;
 			}
 		}
 	}
@@ -687,6 +687,10 @@ public class machine {
 				sair = true;
 			} else {
 				combatefinal(jogador, vilaoespecial);
+			}
+
+			if (combatefinal == true) {
+				fim = true;
 			}
 		}
 	}
