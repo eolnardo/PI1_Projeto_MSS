@@ -57,7 +57,7 @@ public class machine {
 		jogador.vida = jogador.vidabase;
 		vilao.nome = "Haku, o Senhor do Fogo";
 
-		if (morreuUmaVez > 0) {
+		if (morreuUmaVez > 0 && magias.kuriboh<=3) {
 			magias.kuriboh += 3;
 			morreuUmaVez--;
 		}
@@ -145,7 +145,7 @@ public class machine {
 		vilao.nome = "Kiara, a Rainha dos Oceanos";
 		jogador.vida = jogador.vidabase;
 
-		if (morreuUmaVez > 0) {
+		if (morreuUmaVez > 0 && magias.kuriboh<=3) {
 			magias.kuriboh += 3;
 			morreuUmaVez--;
 		}
@@ -184,6 +184,7 @@ public class machine {
 						break;
 					case 2:
 						jogador.defesa(vilao);
+						printarvida(jogador, vilao);
 						break;
 					case 3:
 						magias.kuriboh(jogador);
@@ -229,9 +230,12 @@ public class machine {
 	// ============================================== COMBATE KENKU =======================================================
 	void combate3(viloes vilao, jogador jogador) {
 		vilao.nome = "Kenku, o Mestre do Gelo";
-		vilao.ataque += 5;
+		if (vilao.ataque < 15){
+			vilao.ataque += 5;			
+		}
+		
 
-		if (morreuUmaVez > 0) {
+		if (morreuUmaVez > 0 && magias.kuriboh<=3) {
 			magias.kuriboh += 3;
 			morreuUmaVez--;
 		}
@@ -274,6 +278,7 @@ public class machine {
 						break;
 					case 2:
 						jogador.defesa(vilao);
+						printarvida(jogador, vilao);
 						break;
 					case 3:
 						magias.kuriboh(jogador);
@@ -319,8 +324,9 @@ public class machine {
 	// ============================================= COMBATE FINAL =======================================================
 
 	void combatefinal(jogador jogador, viloes vilao) {
+		vilao.nome = "Blackhole";
 
-		if (morreuUmaVez > 0) {
+		if (morreuUmaVez > 0 && magias.kuriboh<=3) {
 			magias.kuriboh += 3;
 			morreuUmaVez--;
 		}
@@ -360,6 +366,7 @@ public class machine {
 						break;
 					case 2:
 						jogador.defesa(vilao);
+						printarvida(jogador, vilao);
 						break;
 					case 3:
 						magias.kuriboh(jogador);
